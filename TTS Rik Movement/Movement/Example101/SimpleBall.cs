@@ -23,8 +23,8 @@ namespace Movement
 	class SimpleBall : SpriteNode
 	{
 		// your private fields here
-		float xspeed = 300;
-		float yspeed = 300;
+		float xspeed = 700;
+		float yspeed = 700;
 
 		// constructor + call base constructor
 		public SimpleBall() : base("resources/bigball.png")

@@ -23,7 +23,8 @@ namespace Movement
 	class MovingBall : SpriteNode
 	{
 		// your private fields here (add Velocity)
-
+		float xspeed = 300;
+		float yspeed = 300;
 
 		// constructor + call base constructor
 		public MovingBall() : base("resources/dvdlogo.png")
@@ -43,7 +44,8 @@ namespace Movement
 		private void Move(float deltaTime)
 		{
 			// TODO implement
-			// Position += Velocity * deltaTime;
+			Position.X += xspeed * deltaTime;
+			Position.Y += yspeed * deltaTime;
 		}
 
 		private void BounceEdges()
@@ -54,9 +56,26 @@ namespace Movement
 			float spr_heigth = TextureSize.Y;
 
 			// TODO implement...
-			if (Position.X > scr_width)
+			if (Position.X > scr_width - TextureSize.X / 2)
 			{
-				// ...
+				Position.X = scr_width - TextureSize.X / 2;
+				xspeed *= -1;
+			}
+			if (Position.X < 0 + TextureSize.X / 2)
+			{
+				Position.X = 0 + TextureSize.X / 2;
+				xspeed *= -1;
+			}
+
+			if (Position.Y > scr_height - TextureSize.Y / 2)
+			{
+				Position.Y = scr_height - TextureSize.Y / 2;
+				yspeed *= -1;
+			}
+			if (Position.Y < 0 + TextureSize.Y / 2)
+			{
+				Position.Y = 0 + TextureSize.Y / 2;
+				yspeed *= -1;
 			}
 		}
 
