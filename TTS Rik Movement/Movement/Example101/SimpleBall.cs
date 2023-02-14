@@ -23,7 +23,8 @@ namespace Movement
 	class SimpleBall : SpriteNode
 	{
 		// your private fields here
-
+		float xspeed = 200;
+		float yspeed = 200;
 
 		// constructor + call base constructor
 		public SimpleBall() : base("resources/bigball.png")
@@ -54,9 +55,9 @@ namespace Movement
 			float spr_heigth = TextureSize.Y;
 
 			// TODO implement...
-			if (Position.X > scr_width)
+			if (Position.X > scr_width - TextureSize / 2)
 			{
-				// ...
+			 
 			}
 		}
 
