@@ -23,8 +23,8 @@ namespace Movement
 	class SimpleBall : SpriteNode
 	{
 		// your private fields here
-		//float xspeed = 200;
-		//float yspeed = 200;
+		float xspeed = 300;
+		float yspeed = 300;
 
 		// constructor + call base constructor
 		public SimpleBall() : base("resources/bigball.png")
@@ -44,7 +44,8 @@ namespace Movement
 		private void Move(float deltaTime)
 		{
 			// TODO implement
-			//Position.X += 200 * deltaTime;
+			Position.X += xspeed * deltaTime;
+			Position.Y += yspeed * deltaTime;
 		}
 
 		private void BounceEdges()
@@ -55,9 +56,26 @@ namespace Movement
 			float spr_heigth = TextureSize.Y;
 
 			// TODO implement...
-			if (Position.X > scr_width - TextureSize / 2)
+			if (Position.X > scr_width - TextureSize.X / 2)
 			{
-			//  xspeed *= -1;
+				Position.X = scr_width - TextureSize.X / 2;
+				xspeed *= -1;
+			}
+			if (Position.X < 0 + TextureSize.X / 2)
+			{
+				Position.X = 0 + TextureSize.X / 2;
+				xspeed *= -1;
+			}
+
+			if (Position.Y > scr_height - TextureSize.Y / 2)
+			{
+				Position.Y = scr_height - TextureSize.Y / 2;
+				yspeed *= -1;
+			}
+			if (Position.Y < 0 + TextureSize.Y / 2)
+			{
+				Position.Y = 0 + TextureSize.Y / 2;
+				yspeed *= -1;
 			}
 		}
 
