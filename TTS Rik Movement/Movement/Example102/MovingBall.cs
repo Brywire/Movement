@@ -1,5 +1,6 @@
 using System.Numerics; // Vector2
 using Raylib_cs; // Color
+using System.Collections.Generic; // For lists
 
 /*
 In this class, we have the properties:
@@ -22,10 +23,6 @@ namespace Movement
 {
 	class MovingBall : SpriteNode
 	{
-		// your private fields here (add Velocity)
-		// float xspeed = 300;
-		// float yspeed = 300;
-
 		Vector2 Velocity = new Vector2(300, 300);
 
 		// constructor + call base constructor
