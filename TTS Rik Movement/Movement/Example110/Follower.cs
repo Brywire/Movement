@@ -24,7 +24,9 @@ namespace Movement
 	class Follower : SpriteNode
 	{
 		// your private fields here (add Velocity, Acceleration, and MaxSpeed)
-
+		Vector2 Velocity = new Vector2();
+		Vector2 Acceleration = new Vector2();
+		float maxspeed = 1000;
 
 		// constructor + call base constructor
 		public Follower() : base("resources/ball.png")
@@ -49,7 +51,7 @@ namespace Movement
 			Position = mouse; // incorrect!!
 
 			// TODO implement
-			// Position += Velocity * deltaTime;
+			Position += Velocity * deltaTime;
 		}
 
 		private void BounceEdges()
