@@ -21,7 +21,7 @@ Methods:
 
 namespace Movement
 {
-	class Pointer : SpriteNode
+	class Pointer : MoverNode
 	{
 		// your private fields here (add Velocity, Acceleration, and MaxSpeed)
 
@@ -38,37 +38,19 @@ namespace Movement
 		{
 			PointToMouse(deltaTime);
 			BounceEdges();
+			Move(deltaTime);
 		}
 
 		// your own private methods
 		private void PointToMouse(float deltaTime)
 		{
-			// Or just implement it in Example 110 Follower
-
 			Vector2 mouse = Raylib.GetMousePosition();
-			// Console.WriteLine(mouse);
-
-			Position = mouse; // incorrect!!
-
-			Rotation += deltaTime * Math.PI;  // incorrect!!
-
-			// TODO implement
-			// Position += Velocity * deltaTime;
+			Vector2 dir = mouse - Position;
+			Acceleration = Vector2.Normalize(dir) * 500.0f;
+			Rotation = Math.Atan2(Velocity.Y, Velocity.X);
 		}
 
-		private void BounceEdges()
-		{
-			float scr_width = Settings.ScreenSize.X;
-			float scr_height = Settings.ScreenSize.Y;
-			float spr_width = TextureSize.X;
-			float spr_heigth = TextureSize.Y;
-
-			// TODO implement...
-			if (Position.X > scr_width)
-			{
-				// ...
-			}
-		}
+		
 
 	}
 }

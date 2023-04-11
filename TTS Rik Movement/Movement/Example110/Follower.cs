@@ -44,7 +44,6 @@ namespace Movement
 		{
 			Vector2 mouse = Raylib.GetMousePosition();
 			Vector2 dir = mouse - Position;
-			
 			Acceleration = Vector2.Normalize(dir) * 1000.0f;
 		}
 
