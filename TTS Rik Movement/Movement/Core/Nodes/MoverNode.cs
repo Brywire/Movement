@@ -50,5 +50,39 @@ namespace Movement
 			Acceleration += force / Mass;
 		}
 
+		protected void BounceEdges()
+		{
+			float scr_width = Settings.ScreenSize.X;
+			float scr_height = Settings.ScreenSize.Y;
+			float spr_width = TextureSize.X;
+			float spr_heigth = TextureSize.Y;
+
+			// TODO implement...
+			if (Position.X > scr_width - TextureSize.X / 2)
+			{
+				Position.X = scr_width - TextureSize.X / 2;
+				// xspeed *= -1;
+				Velocity.X *= -1;
+			}
+			if (Position.X < 0 + TextureSize.X / 2)
+			{
+				Position.X = 0 + TextureSize.X / 2;
+				Velocity.X *= -1;
+			}
+
+			if (Position.Y > scr_height - TextureSize.Y / 2)
+			{
+				Position.Y = scr_height - TextureSize.Y / 2;
+				Velocity.Y *= -1;
+			}
+			if (Position.Y < 0 + TextureSize.Y / 2)
+			{
+				Position.Y = 0 + TextureSize.Y / 2;
+				Velocity.Y *= -1;
+			}
+		}
+
+		
+
 	}
 }
