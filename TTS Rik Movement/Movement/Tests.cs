@@ -39,10 +39,9 @@ namespace Movement
 
 			// limit
 			float max = 2;
-			Vector2 limited;
-			if (magnitude < 1.0) {
-				limited = velocity * max;
-			} else {
+			Vector2 limited = new Vector2();
+			if (magnitude > max) 
+			{
 				limited = normalized * max;
 			}
 			Console.WriteLine("limited to magnitude "+max+": " + limited);
