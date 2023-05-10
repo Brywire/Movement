@@ -8,13 +8,20 @@ namespace Movement
 	class ParticleSystem : Node
 	{
 		// your private fields here (add Velocity, Acceleration, and MaxSpeed)
-		List<Particle> particles;
+		public List<Particle> particles;
 		private List<Color> colors;
+		private Random rand;
+		public float timer;
+		
 
 		// constructor + call base constructor
 		public ParticleSystem(float x, float y) : base()
 		{
 			Position = new Vector2(x, y);
+			timer = 0.0f;
+			rand = new Random();
+
+
 
 			colors = new List<Color>();
 			colors.Add(Color.WHITE);
@@ -27,23 +34,31 @@ namespace Movement
 			colors.Add(Color.YELLOW);
 
 			particles = new List<Particle>();
-			Random rand = new Random();
-			for (int i = 0; i < 100; i++)
-			{
-				float randX = (float)rand.NextDouble();
-				float randY = (float)rand.NextDouble();
-				Vector2 pos = new Vector2(randX, randY) * 200;
-				pos -= new Vector2(100, 100);
-				Particle p = new Particle(pos.X, pos.Y, colors[rand.Next()%colors.Count]);
-				particles.Add(p);
-				p.Rotation = (float)Math.Atan2(pos.Y, pos.X);
-				AddChild(p);
-			}
 		}
 
 		// Update is called every frame
 		public override void Update(float deltaTime)
 		{
+			timer += deltaTime;
+		
+			if (timer > 0.2f)
+			{
+				float randX = (float)rand.NextDouble();
+				float randY = (float)rand.NextDouble();
+				Vector2 pos = new Vector2(randX, randY) * 200;
+				pos -= new Vector2(100, 100);
+				Particle p = new Particle(0,0 , colors[rand.Next()%colors.Count]);
+				particles.Add(p);
+				p.Rotation = (float)Math.Atan2(pos.Y, pos.X);
+				AddChild(p);
+				timer = 0.0f;
+			}
+			
+			if (particles.Count > 50)
+			{
+				RemoveChild(particles[0]);
+				particles.RemoveAt(0);
+			}
 			
 		}
 

@@ -50,6 +50,16 @@ namespace Movement
 			Acceleration += force / Mass;
 		}
 
+		private void Fall(float deltaTime)
+		{
+
+			Vector2 wind = new Vector2(150.0f, 0.0f);
+			Vector2 gravity = new Vector2(0.0f, 980.0f);
+
+			AddForce(wind);
+			AddForce(gravity);
+		}
+
 		protected void BounceEdges()
 		{
 			float scr_width = Settings.ScreenSize.X;
