@@ -34,11 +34,13 @@ namespace Movement
 			colors.Add(Color.YELLOW);
 
 			particles = new List<Particle>();
+
 		}
 
 		// Update is called every frame
 		public override void Update(float deltaTime)
 		{
+			
 			timer += deltaTime;
 		
 			if (timer > 0.2f)
@@ -50,6 +52,10 @@ namespace Movement
 				Particle p = new Particle(0,0 , colors[rand.Next()%colors.Count]);
 				particles.Add(p);
 				p.Rotation = (float)Math.Atan2(pos.Y, pos.X);
+				
+				// float fromPolarX = (float)Math.Cos(Rotation) * thrustForce;
+				// float fromPolarY = (float)Math.Sin(Rotation) * thrustForce;
+				// AddForce(new Vector2(fromPolarX, fromPolarY));
 				AddChild(p);
 				timer = 0.0f;
 			}
