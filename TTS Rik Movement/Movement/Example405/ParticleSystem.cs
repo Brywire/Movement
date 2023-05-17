@@ -43,7 +43,7 @@ namespace Movement
 			
 			timer += deltaTime;
 		
-			if (timer > 0.1f)
+			if (timer > 0.2f)
 			{
 				float randX = (float)rand.NextDouble();
 				float randY = (float)rand.NextDouble();
