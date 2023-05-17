@@ -43,24 +43,21 @@ namespace Movement
 			
 			timer += deltaTime;
 		
-			if (timer > 0.2f)
+			if (timer > 0.1f)
 			{
 				float randX = (float)rand.NextDouble();
 				float randY = (float)rand.NextDouble();
-				Vector2 pos = new Vector2(randX, randY) * 200;
-				pos -= new Vector2(100, 100);
+				Vector2 vel = new Vector2(randX, randY) * 200;
+				vel -= new Vector2(100, 100);
 				Particle p = new Particle(0,0 , colors[rand.Next()%colors.Count]);
 				particles.Add(p);
-				p.Rotation = (float)Math.Atan2(pos.Y, pos.X);
+				p.Velocity = vel;
 				
-				// float fromPolarX = (float)Math.Cos(Rotation) * thrustForce;
-				// float fromPolarY = (float)Math.Sin(Rotation) * thrustForce;
-				// AddForce(new Vector2(fromPolarX, fromPolarY));
 				AddChild(p);
 				timer = 0.0f;
 			}
 			
-			if (particles.Count > 50)
+			if (particles.Count > 25)
 			{
 				RemoveChild(particles[0]);
 				particles.RemoveAt(0);
