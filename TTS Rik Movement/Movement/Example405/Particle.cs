@@ -27,7 +27,7 @@ namespace Movement
 		// your private fields here (add Velocity, Acceleration, and MaxSpeed)
 		float thrustForce = 0f;
 		// constructor + call base constructor
-		public Particle(float x, float y, Color color) : base("resources/will-smith-clip-art-will-smith.png")
+		public Particle(float x, float y, Color color) : base("resources/spaceship.png")
 		{
 			Position = new Vector2(x, y);
 			Scale = new Vector2(0.25f, 0.25f);

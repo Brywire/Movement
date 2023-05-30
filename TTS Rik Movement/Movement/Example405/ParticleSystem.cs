@@ -25,13 +25,13 @@ namespace Movement
 
 			colors = new List<Color>();
 			colors.Add(Color.WHITE);
-			// colors.Add(Color.ORANGE);
-			// colors.Add(Color.RED);
-			// colors.Add(Color.BLUE);
-			// colors.Add(Color.GREEN);
-			// colors.Add(Color.BEIGE);
-			// colors.Add(Color.SKYBLUE);
-			// colors.Add(Color.YELLOW);
+			colors.Add(Color.ORANGE);
+			colors.Add(Color.RED);
+			colors.Add(Color.BLUE);
+			colors.Add(Color.GREEN);
+			colors.Add(Color.BEIGE);
+			colors.Add(Color.SKYBLUE);
+			colors.Add(Color.YELLOW);
 
 			particles = new List<Particle>();
 
